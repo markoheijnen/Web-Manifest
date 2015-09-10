@@ -81,6 +81,9 @@ class Web_Manifest {
 			$icons        = $GLOBALS['wp_site_icon']->intermediate_image_sizes();
 			$meta_data    = wp_get_attachment_metadata( $site_icon_id );
 
+			// Merge icons and Meta data sizes
+			$icons = array_unique( array_merge( array('full'), $icons, array_keys($meta_data['sizes']) ) );
+
 			foreach ( $icons as $icon ) {
 				$url_data = wp_get_attachment_image_src( $site_icon_id, $icon );
 				$image = array(
