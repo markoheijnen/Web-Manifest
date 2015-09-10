@@ -32,10 +32,21 @@ include dirname( __FILE__ ) . '/inc/customizer.php';
 class Web_Manifest {
 
 	public function __construct() {
+		// Flush rewrite rules on activation and deactivation
+		register_activation_hook( __FILE__, array( $this, 'on_activation' ) );
+		register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+
 		add_action( 'wp_head', array( $this, 'output_link_wp_head' ), 10, 0 );
 		add_action( 'init', array( $this, 'add_rewrite_rule' ) );
 		add_action( 'parse_request', array( $this, 'show_manifest' ) );
 	}
+
+
+	public function on_activation() {
+		$this->add_rewrite_rule();
+		flush_rewrite_rules();
+	}
+
 
 	public function output_link_wp_head() {
 		echo '<link rel="manifest" href="' . esc_url( home_url('manifest.json') ) . '" />' . PHP_EOL;
