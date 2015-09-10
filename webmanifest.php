@@ -27,6 +27,7 @@ Domain Path: /languages
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+include dirname( __FILE__ ) . '/inc/customizer.php';
 
 class Web_Manifest {
 
@@ -61,7 +62,7 @@ class Web_Manifest {
 	public function get_manifest() {
 		$data = array(
 			'name'        => get_bloginfo( 'name' ),
-			'short_name'  => '',
+			'short_name'  => get_option( 'webmanifest_shortname' ),
 			'icons'       => array(),
 
 			'display'     => $this->get_display(),
