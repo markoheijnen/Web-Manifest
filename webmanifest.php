@@ -65,9 +65,7 @@ class Web_Manifest {
 		}
 
 		$manifest = $this->get_manifest();
-
-		echo wp_json_encode( $manifest );
-		exit;
+		wp_send_json( $manifest );
 	}
 
 	public function get_manifest() {
