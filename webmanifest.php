@@ -74,6 +74,7 @@ class Web_Manifest {
 		$data = array(
 			'name'        => get_bloginfo( 'name' ),
 			'short_name'  => get_option( 'webmanifest_shortname' ),
+			'lang'        => get_locale(),
 			'icons'       => array(),
 
 			'display'     => $this->get_display(),
