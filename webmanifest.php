@@ -27,13 +27,6 @@ Domain Path: /languages
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/*
-	TODO
-	- Add shortname
-	- More sizes to site_icon_image_sizes?
-		- 32, 180, 192, 270
-	- Density for icons?
-*/
 
 class Web_Manifest {
 
