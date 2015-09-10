@@ -85,7 +85,7 @@ class Web_Manifest {
 					'height'    => $url_data[2]
 				);
 
-				if ( $meta_data['sizes'][$icon] ) {
+				if ( isset( $meta_data['sizes'][$icon] ) ) {
 					$image['mime-type'] = $meta_data['sizes'][$icon]['mime-type'];
 				}
 				else {
